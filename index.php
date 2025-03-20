@@ -1,3 +1,22 @@
+<?php
+$servername = "localhost";
+$database = "4a";
+$username = "root"; 
+$password = "";
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+$query  = "SELECT * FROM mahasiswa";
+$hasil = mysqli_query($conn, $query);
+
+$data = [];
+while ($baris = mysqli_fetch_assoc($hasil)) {
+    $data[] = $baris;
+}
+
+var_dump($data);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +33,7 @@
             <th>Nim</th>
             <th>Nama</th>
         </thead>
-        </tbody>
+        <tbody>
             <tr>
                 <td>1</td>
                 <td>E020323052</td>
