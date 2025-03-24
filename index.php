@@ -14,7 +14,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
     $data[] = $baris;
 }
 
-var_dump($data);
+
 
 ?>
 <!DOCTYPE html>
@@ -27,23 +27,28 @@ var_dump($data);
 <body>
     <h1>DATA MAHASISWA</h1>
     <br>
+    <a href="tambahmahasiswa.php">Tambah</a>
     <table border="1" cell spassing>
-        <thead>
+    <thead>
             <th>No</th>
             <th>Nim</th>
             <th>Nama</th>
         </thead>
         <tbody>
+
+        <?php
+        $i = 1;
+        foreach ($data as $d) : ?>
             <tr>
-                <td>1</td>
-                <td>E020323052</td>
-                <td>Salsabila Grima</td>
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $d["nim"] ?></td>
+                <td><?php echo $d["nama"] ?></td>
+                <td><?php echo $d["tanggal_lahir"] ?></td>
+                <td><?php echo $d["telepon"] ?></td>
+                <td><?php echo $d["email"] ?></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>E020323056</td>
-                <td>Zukimi</td>
-            </tr>
+        <?php endforeach; ?>
+
         </tbody>
 </body>
 </html>
