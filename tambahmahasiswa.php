@@ -32,10 +32,11 @@
         <tr>
             <td>Prodi</td>
             <td>
-                <select name="id">
-                    <option value="1">Manajamen Informatika</option>
-                    <option value="2">Administrasi Bisnis</option>
-                    <option value="3">Bisnis Digital</option>
+            <select name="id_prodi">
+                    <?php foreach($data as $d) : ?>
+                    <option value="<?php echo $d['id'] ?>"><?php echo $d['nama'] ?> </option>
+                    <?php endforeach ?>
+                </select>
             </td>
         </tr>
        </table>
