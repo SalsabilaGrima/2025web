@@ -6,7 +6,7 @@ $password = "";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
-$query  = "SELECT * FROM mahasiswa";
+$query  = "SELECT m.*,p.nama nama_prodi FROM mahasiswa m JOIN prodi p ON m.id = p.id";
 $hasil = mysqli_query($conn, $query);
 
 $data = [];
@@ -33,6 +33,11 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
             <th>No</th>
             <th>Nim</th>
             <th>Nama</th>
+            <th>tanggal_lahir</th>
+            <th>Telepon</th>
+            <th>email</th>
+            <th>prodi</th>
+            <th>Aksi</th>
         </thead>
         <tbody>
 
@@ -46,9 +51,12 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                 <td><?php echo $d["tanggal_lahir"] ?></td>
                 <td><?php echo $d["telepon"] ?></td>
                 <td><?php echo $d["email"] ?></td>
+                <td><?php echo $d["nama_prodi"] ?></td>
+                <td><a href="deletemahasiswa.php?nim=<?= $d['nim'];  ?>" onclick="return confirm('yakin ingin hapus?')">Delete</a> | <a href="editmahasiswa.php?nim=<?= $d['nim'];  ?>">Edit</a></td>
             </tr>
         <?php endforeach; ?>
 
         </tbody>
 </body>
 </html>
+

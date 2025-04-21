@@ -1,3 +1,13 @@
+<?php
+include "koneksi.php";
+
+$query = "SELECT * FROM prodi";
+$data = ambildata($query);
+
+
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +42,7 @@
         <tr>
             <td>Prodi</td>
             <td>
-            <select name="id_prodi">
+            <select name="id">
                     <?php foreach($data as $d) : ?>
                     <option value="<?php echo $d['id'] ?>"><?php echo $d['nama'] ?> </option>
                     <?php endforeach ?>
