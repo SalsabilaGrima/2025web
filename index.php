@@ -1,19 +1,12 @@
 <?php
-$servername = "localhost";
-$database = "4a";
-$username = "root"; 
-$password = "";
-
-$conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+if (!isset($_SESSION['login'])){
+    header("location:login.html");   
+}
+include "koneksi.php";
 
 $query  = "SELECT m.*,p.nama nama_prodi FROM mahasiswa m JOIN prodi p ON m.id = p.id";
-$hasil = mysqli_query($conn, $query);
-
-$data = [];
-while ($baris = mysqli_fetch_assoc($hasil)) {
-    $data[] = $baris;
-}
-
+$data= ambildata($query);
 
 
 ?>
@@ -57,6 +50,8 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
         <?php endforeach; ?>
 
         </tbody>
+    <table>
+        <a href="logout.php">keluar</a>
 </body>
 </html>
 
