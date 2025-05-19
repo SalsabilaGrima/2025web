@@ -45,6 +45,9 @@ include "template/sidebar.php";
                     <div class="card mb-4">
                         <div class="card-header">
                             <h3 class="card-title">DATA MAHASISWA</h3>
+                            <div class="card-tools">
+                                <a href="tambahmahasiswa.php" class="btn btn-primary">Tambah</a>
+                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -74,7 +77,7 @@ include "template/sidebar.php";
                                             <td><?php echo $d["telepon"] ?></td>
                                             <td><?php echo $d["email"] ?></td>
                                             <td><?php echo $d["nama_prodi"] ?></td>
-                                            <td><a href="deletemahasiswa.php?nim=<?= $d['nim'];  ?>" onclick="return confirm('yakin ingin hapus?')" class = "btn btn-warning">Delete</a> <a href="editmahasiswa.php?nim=<?= $d['nim'];  ?>"class = "btn btn-info">Edit</a></td>
+                                            <td><a href="deletemahasiswa.php?nim=<?= $d['nim'];  ?>" onclick="return confirm('yakin ingin hapus?')" class="btn btn-warning">Delete</a> <a href="editmahasiswa.php?nim=<?= $d['nim'];  ?>" class="btn btn-info">Edit</a></td>
                                         </tr>
                                     <?php endforeach; ?>
 
@@ -97,7 +100,7 @@ include "template/sidebar.php";
     <!--end::App Content-->
 </main>
 <!--end::App Main-->
-    
-        <?php
-        include "template/footer.php";
-        ?>
+
+<?php
+include "template/footer.php";
+?>
